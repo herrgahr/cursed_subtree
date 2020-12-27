@@ -1,0 +1,29 @@
+[foo]
+	bar = 123
+[alias]
+	# for an explanation of the "&& :" magic, see:
+	#  https://stackoverflow.com/a/25915221
+    # subtree add
+    sta = !git subtree add -P $1 $1 HEAD && :
+    # subtree update
+    stu = !git subtree pull -P $1 $1 HEAD && :
+    stl = !git config --get-regexp remote\\..+\\.subtree|cut -d. -f2
+
+
+
+[remote "fmt"]
+	url = https://github.com/fmtlib/fmt
+	fetch = +refs/heads/*:refs/remotes/fmt/*
+	subtree = 1
+[remote "luajit"]
+	url = https://github.com/luajit/luajit
+	fetch = +refs/heads/*:refs/remotes/luajit/*
+	subtree = 1
+[remote "sub/luajit"]
+	url = https://github.com/luajit/luajit
+	fetch = +refs/heads/*:refs/remotes/sub/luajit/*
+	subtree = 1
+[remote "fmt/luajit"]
+	url = https://github.com/luajit/luajit
+	fetch = +refs/heads/*:refs/remotes/fmt/luajit/*
+	subtree = 1
