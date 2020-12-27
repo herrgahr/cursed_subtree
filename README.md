@@ -1,6 +1,6 @@
 # Cursed example of using git-config's include feature to:
 
-1. track remotes in the repository itself
+1. track remotes [in the repository itself](.git-config-include)
 2. abuse the remote's name to encode/a/subtrees/prefix
    - yes, it's possible to name a remote `sub/luajit`
 3. use aliases to add / pull those subtrees
