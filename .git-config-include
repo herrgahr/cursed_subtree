@@ -8,6 +8,8 @@
     # subtree update
     stu = !git subtree pull -P $1 $1 HEAD && :
     stl = !git config --get-regexp remote\\..+\\.subtree|cut -d. -f2
+    sta-all = !git stl | xargs -L1 git sta
+    stu-all = !git stl | xargs -L1 git stu
 
 
 
