@@ -1,7 +1,8 @@
-Cursed example of using git-config's include feature to:
+# Cursed example of using git-config's include feature to:
 
 1. track remotes in the repository itself
 2. abuse the remote's name to encode/a/subtrees/prefix
+   - yes, it's possible to name a remote `sub/luajit`
 3. use aliases to add / pull those subtrees
 
 To kick things off, you need to tell git-config to include .git-config-include from the workdir:
@@ -33,4 +34,23 @@ fmt/luajit
 git stl | xargs -L1 git stu
 ```
 
+...but of course, there's an alias for this, too.
+
+## aliases
+
+### git sta <remote name>
+
+perform `git subtree add` for a remote
+
+### git stu <remote name>
+
+perform `git subtree pull` for a remote
+
+### git sta-all
+
+Do `git sta`  for all remotes that have the `.subtree` config key
+
+### git stu-all
+
+Like`git sta-all` , but for `git stu`
 
